@@ -212,9 +212,8 @@ begin
 		end;
 end;
 
-function ColToRGBTriple(aCol: TColor): TRGBTriple;
+function ColRefToRGBTriple(aCol: TColorRef): TRGBTriple;
 begin
-	ACol := ColorToRGB(Acol);
 	Result.rgbtRed := (ACol shr 16) and $000000FF;
 	Result.rgbtGreen := (ACol shr 8) and $000000FF;
 	Result.rgbtBlue := ACol and $000000FF;
@@ -224,8 +223,8 @@ function IsDarkStyle(const aStyle: TCustomStyleServices): Boolean;
 var
   H, S, BkL, TxL: extended;
 begin
-  RGBtoHSL(ColToRGBTriple(aStyle.ColorToRGB(clWindow)), H, S, BkL);
-  RGBtoHSL(ColToRGBTriple(aStyle.ColorToRGB(clWindowText)), H, S, TxL);;
+  RGBtoHSL(ColRefToRGBTriple(aStyle.ColorToRGB(clWindow)), H, S, BkL);
+  RGBtoHSL(ColRefToRGBTriple(aStyle.ColorToRGB(clWindowText)), H, S, TxL);;
   Result := BkL < TxL;
 end;
 
