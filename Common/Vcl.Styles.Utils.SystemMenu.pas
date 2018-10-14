@@ -63,6 +63,7 @@ type
     destructor Destroy; override;
   end;
 
+function IsDarkStyle(const aStyle: TCustomStyleServices): Boolean;
 
 implementation
 
