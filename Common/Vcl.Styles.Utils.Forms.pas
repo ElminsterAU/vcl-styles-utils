@@ -2669,15 +2669,13 @@ begin
 end;
 
 initialization
+  {$IFNDEF USE_Vcl.Styles.Hooks}
+  UseLatestCommonDialogs := False;
 
- {$IFNDEF USE_Vcl.Styles.Hooks}
- //UseLatestCommonDialogs := False;
- {$ENDIF}
-
-{$IF CompilerVersion >= 30}
- TStyleManager.SystemHooks := TStyleManager.SystemHooks - [shDialogs];
-{$IFEND}
-
+  {$IF CompilerVersion >= 30}
+  TStyleManager.SystemHooks := TStyleManager.SystemHooks - [shDialogs];
+  {$IFEND}
+  {$ENDIF}
 
   if StyleServices.Available then
   begin
