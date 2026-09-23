@@ -15,7 +15,7 @@
 // The Original Code is Vcl.Styles.NC.pas.
 //
 // The Initial Developer of the Original Code is Rodrigo Ruz V.
-// Portions created by Rodrigo Ruz V. are Copyright (C) 2014-2021 Rodrigo Ruz V.
+// Portions created by Rodrigo Ruz V. are Copyright (C) 2014-2025 Rodrigo Ruz V.
 // All Rights Reserved.
 //
 // **************************************************************************************************
@@ -316,7 +316,7 @@ type
   end;
 
 var
-  Trampoline_TFormStyleHook_GetBorderSize: function(Self: TFormStyleHook): TRect;
+  Trampoline_TFormStyleHook_GetBorderSize: function(Self: TFormStyleHook{$IF CompilerVersion >= 36}; UseActiveStyle: Boolean = True{$IFEND}): TRect;
   Trampoline_TFormStyleHook_GetRegion: function(Self: TFormStyleHook): HRgn;
 
 class function TCustomStyleEngineHelper.GetRegisteredStyleHooks: TStyleHookDictionary;
@@ -2004,7 +2004,7 @@ begin
 end;
 
 // This custom GetBorderSize method is necessary to allow to the NC controls use a custom Style in the title and border area.
-function Detour_TFormStyleHook_GetBorderSize(Self: TFormStyleHook): TRect;
+function Detour_TFormStyleHook_GetBorderSize(Self: TFormStyleHook;{$IF CompilerVersion >= 36} UseActiveStyle: Boolean = True{$IFEND}): TRect;
 var
   Size: TSize;
   Details: TThemedElementDetails;

@@ -15,7 +15,7 @@
 // The Original Code is Vcl.Styles.Ext.pas.
 //
 // The Initial Developer of the Original Code is Rodrigo Ruz V.
-// Portions created by Rodrigo Ruz V. are Copyright (C) 2012-2023 Rodrigo Ruz V.
+// Portions created by Rodrigo Ruz V. are Copyright (C) 2012-2025 Rodrigo Ruz V.
 // All Rights Reserved.
 //
 // **************************************************************************************************
@@ -97,11 +97,12 @@ type
   end;
 
 {$REGION 'Documentation'}
-  /// <summary>Helper class for the TStyleManager
+  /// <summary>
+  ///  Helper class for the TStyleManager
+  ///  Vcl.Themes.TStyleManagerHelper in RAD Studio 11 prevents activate this class helper.
   /// </summary>
 {$ENDREGION}
-
-  TStyleManagerHelper = Class Helper for TStyleManager
+  TStyleManagerHelper = class Helper for TStyleManager
   strict private
     class function GetStyleSourceInfo(const StyleName: string): TSourceInfo; static;
     class function GetStyles: TList<TCustomStyleServices>;
