@@ -412,16 +412,16 @@ begin
     TStyleManager.FSystemHooks:
     006CD071 07               pop es  006CD076 FFFF             db $ff $ff
   }
+{$IF (CompilerVersion >= 35)}  //Alexandria.
+  with Self do
+    p := Pointer(@FRegisteredStyles);
+{$ELSE}
   // Use the address of the Self.Flags property to calculate the offset of the FRegisteredStyles
 {$IFDEF CPUX64}
   p := Pointer(PByte(@Self.Flags) + 8);
 {$ELSE}
   p := Pointer(PByte(@Self.Flags) + 4);
 {$ENDIF CPUX64}
-
-{$IF (CompilerVersion >= 35)}  //Alexandria.
-  with Self do
-    p := Pointer(@FRegisteredStyles);
 {$IFEND}
 
   LRegisteredStyles := TDictionary<string, TSourceInfo>(p^);
@@ -866,21 +866,21 @@ begin
     sfCategoryPanelGroupHeaderNormal:
       if TseStyle(Source).Fonts[ktfCategoryPanelGroupHeaderNormal] <> NewFont then
         TseStyle(Source).Fonts[ktfCategoryPanelGroupHeaderNormal] := NewFont;
-    sfCatgeoryButtonsCategoryNormal:
-      if TseStyle(Source).Fonts[ktfCatgeoryButtonsCategoryNormal] <> NewFont then
-        TseStyle(Source).Fonts[ktfCatgeoryButtonsCategoryNormal] := NewFont;
-    sfCatgeoryButtonsCategorySelected:
-      if TseStyle(Source).Fonts[ktfCatgeoryButtonsCategorySelected] <> NewFont then
-        TseStyle(Source).Fonts[ktfCatgeoryButtonsCategorySelected] := NewFont;
-    sfCatgeoryButtonsHot:
-      if TseStyle(Source).Fonts[ktfCatgeoryButtonsHot] <> NewFont then
-        TseStyle(Source).Fonts[ktfCatgeoryButtonsHot] := NewFont;
-    sfCatgeoryButtonsNormal:
-      if TseStyle(Source).Fonts[ktfCatgeoryButtonsNormal] <> NewFont then
-        TseStyle(Source).Fonts[ktfCatgeoryButtonsNormal] := NewFont;
-    sfCatgeoryButtonsSelected:
-      if TseStyle(Source).Fonts[ktfCatgeoryButtonsSelected] <> NewFont then
-        TseStyle(Source).Fonts[ktfCatgeoryButtonsSelected] := NewFont;
+    sfCategoryButtonsCategoryNormal:
+      if TseStyle(Source).Fonts[ktfCategoryButtonsCategoryNormal] <> NewFont then
+        TseStyle(Source).Fonts[ktfCategoryButtonsCategoryNormal] := NewFont;
+    sfCategoryButtonsCategorySelected:
+      if TseStyle(Source).Fonts[ktfCategoryButtonsCategorySelected] <> NewFont then
+        TseStyle(Source).Fonts[ktfCategoryButtonsCategorySelected] := NewFont;
+    sfCategoryButtonsHot:
+      if TseStyle(Source).Fonts[ktfCategoryButtonsHot] <> NewFont then
+        TseStyle(Source).Fonts[ktfCategoryButtonsHot] := NewFont;
+    sfCategoryButtonsNormal:
+      if TseStyle(Source).Fonts[ktfCategoryButtonsNormal] <> NewFont then
+        TseStyle(Source).Fonts[ktfCategoryButtonsNormal] := NewFont;
+    sfCategoryButtonsSelected:
+      if TseStyle(Source).Fonts[ktfCategoryButtonsSelected] <> NewFont then
+        TseStyle(Source).Fonts[ktfCategoryButtonsSelected] := NewFont;
     sfCheckBoxTextDisabled:
       if TseStyle(Source).Fonts[ktfCheckBoxTextDisabled] <> NewFont then
         TseStyle(Source).Fonts[ktfCheckBoxTextDisabled] := NewFont;
@@ -1127,21 +1127,21 @@ begin
     sfCategoryPanelGroupHeaderNormal:
       if TseStyle(Source).Fonts[ktfCategoryPanelGroupHeaderNormal].Color <> NewColor then
         TseStyle(Source).Fonts[ktfCategoryPanelGroupHeaderNormal].Color := NewColor;
-    sfCatgeoryButtonsCategoryNormal:
-      if TseStyle(Source).Fonts[ktfCatgeoryButtonsCategoryNormal].Color <> NewColor then
-        TseStyle(Source).Fonts[ktfCatgeoryButtonsCategoryNormal].Color := NewColor;
-    sfCatgeoryButtonsCategorySelected:
-      if TseStyle(Source).Fonts[ktfCatgeoryButtonsCategorySelected].Color <> NewColor then
-        TseStyle(Source).Fonts[ktfCatgeoryButtonsCategorySelected].Color := NewColor;
-    sfCatgeoryButtonsHot:
-      if TseStyle(Source).Fonts[ktfCatgeoryButtonsHot].Color <> NewColor then
-        TseStyle(Source).Fonts[ktfCatgeoryButtonsHot].Color := NewColor;
-    sfCatgeoryButtonsNormal:
-      if TseStyle(Source).Fonts[ktfCatgeoryButtonsNormal].Color <> NewColor then
-        TseStyle(Source).Fonts[ktfCatgeoryButtonsNormal].Color := NewColor;
-    sfCatgeoryButtonsSelected:
-      if TseStyle(Source).Fonts[ktfCatgeoryButtonsSelected].Color <> NewColor then
-        TseStyle(Source).Fonts[ktfCatgeoryButtonsSelected].Color := NewColor;
+    sfCategoryButtonsCategoryNormal:
+      if TseStyle(Source).Fonts[ktfCategoryButtonsCategoryNormal].Color <> NewColor then
+        TseStyle(Source).Fonts[ktfCategoryButtonsCategoryNormal].Color := NewColor;
+    sfCategoryButtonsCategorySelected:
+      if TseStyle(Source).Fonts[ktfCategoryButtonsCategorySelected].Color <> NewColor then
+        TseStyle(Source).Fonts[ktfCategoryButtonsCategorySelected].Color := NewColor;
+    sfCategoryButtonsHot:
+      if TseStyle(Source).Fonts[ktfCategoryButtonsHot].Color <> NewColor then
+        TseStyle(Source).Fonts[ktfCategoryButtonsHot].Color := NewColor;
+    sfCategoryButtonsNormal:
+      if TseStyle(Source).Fonts[ktfCategoryButtonsNormal].Color <> NewColor then
+        TseStyle(Source).Fonts[ktfCategoryButtonsNormal].Color := NewColor;
+    sfCategoryButtonsSelected:
+      if TseStyle(Source).Fonts[ktfCategoryButtonsSelected].Color <> NewColor then
+        TseStyle(Source).Fonts[ktfCategoryButtonsSelected].Color := NewColor;
     sfCheckBoxTextDisabled:
       if TseStyle(Source).Fonts[ktfCheckBoxTextDisabled].Color <> NewColor then
         TseStyle(Source).Fonts[ktfCheckBoxTextDisabled].Color := NewColor;

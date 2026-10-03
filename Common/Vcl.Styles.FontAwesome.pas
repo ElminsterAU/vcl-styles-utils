@@ -847,7 +847,7 @@ end;
 { TFontAwesomeAnimated }
 type
   TCustomActivityIndicatorShadow = class(TCustomControl)
-  private
+  public
     FAnimate: Boolean;
     FIndicatorColor: TActivityIndicatorColor;
     FIndicatorSize: TActivityIndicatorSize;
